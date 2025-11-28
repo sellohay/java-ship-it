@@ -115,19 +115,26 @@ public class DeliveryApp {
     private static void showParcelBox() {
         System.out.println("Введите тип посылок (1 - стандартная, 2 - хрупкая, 3 - скоропортящаяся):");
         int type = Integer.parseInt(scanner.nextLine());
+        List<? extends Parcel> box = null;
         switch (type) {
             case 1:
-                boxStandardParcel.getAllParcels();
+                box = boxStandardParcel.getAllParcels();
                 break;
             case 2:
-                boxFragileParcel.getAllParcels();
+                box = boxFragileParcel.getAllParcels();
                 break;
             case 3:
-                boxPerishableParcel.getAllParcels();
+                box = boxPerishableParcel.getAllParcels();
                 break;
             default:
-                System.out.println("Неверно введен тип посылки.");
                 break;
+        }
+        if (box == null) {
+            System.out.println("Неверно введен тип посылки.");
+            return;
+        }
+        for (Parcel parcel : box) {
+            System.out.println(parcel);
         }
     }
 

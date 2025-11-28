@@ -23,10 +23,8 @@ public class ParcelBox<T extends Parcel>{
         }
     }
 
-    public void getAllParcels() {
-        for (T parcel : parcels) {
-            System.out.println(parcel);
-        }
+    public List<T> getAllParcels() {
+        return parcels;
     }
 
     public int getBoxSize() {

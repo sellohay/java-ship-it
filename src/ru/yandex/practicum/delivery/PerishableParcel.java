@@ -2,6 +2,8 @@ package ru.yandex.practicum.delivery;
 
 public class PerishableParcel extends Parcel{
 
+    public static final int BASE_COST_PERISHABLE = 3;
+
     private int timeToLive;
     public PerishableParcel(String description, int weight, String deliveryAddress, int sendDay, int timeToLive) {
         super(description, weight, deliveryAddress, sendDay);
@@ -13,8 +15,8 @@ public class PerishableParcel extends Parcel{
     }
 
     @Override
-    public int calculateDeliveryCost() {
-        return weight * BASE_COST_PERISHABLE;
+    public int getBaseCost() {
+        return BASE_COST_PERISHABLE;
     }
 
 }

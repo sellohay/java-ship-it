@@ -2,10 +2,6 @@ package ru.yandex.practicum.delivery;
 
 public abstract class Parcel {
 
-    public static final int BASE_COST_STANDARD = 2;
-    public static final int BASE_COST_PERISHABLE = 3;
-    public static final int BASE_COST_FRAGILE = 4;
-
     protected String description;
     protected int weight;
     protected String deliveryAddress;
@@ -30,7 +26,11 @@ public abstract class Parcel {
         System.out.println("Посылка <<" + description + ">> доставлена по адресу " + deliveryAddress);
     }
 
-    public abstract int calculateDeliveryCost();
+    public int calculateDeliveryCost() {
+        return weight * getBaseCost();
+    }
+
+    public abstract int getBaseCost();
 
     @Override
     public String toString() {

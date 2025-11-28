@@ -2,6 +2,8 @@ package ru.yandex.practicum.delivery;
 
 public class FragileParcel extends Parcel implements Trackable {
 
+    public static final int BASE_COST_FRAGILE = 4;
+
     public FragileParcel(String description, int weight, String deliveryAddress, int sendDay) {
         super(description, weight, deliveryAddress, sendDay);
     }
@@ -13,8 +15,8 @@ public class FragileParcel extends Parcel implements Trackable {
     }
 
     @Override
-    public int calculateDeliveryCost() {
-        return weight * BASE_COST_FRAGILE;
+    public int getBaseCost() {
+        return BASE_COST_FRAGILE;
     }
 
     @Override
